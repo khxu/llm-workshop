@@ -45,6 +45,13 @@ if (apiKey.length) {
 ```
 
 ```js
+const model = view(Inputs.select(["gpt-3.5-turbo", "gpt-4o-mini"], {
+  label: "Model",
+  value: "gpt-4o-mini",
+}));
+```
+
+```js
 const promptInput = view(Inputs.textarea({
   label: "Prompt",
   placeholder: "Type your prompt here",
@@ -67,7 +74,7 @@ view(Inputs.button([["Send", async () => {
   const openai = new OpenAI({ apiKey, dangerouslyAllowBrowser: true });
   try {
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model,
       messages: [{ role: "user", content: promptInput }],
     });
     console.log(response.choices[0].message.content);
