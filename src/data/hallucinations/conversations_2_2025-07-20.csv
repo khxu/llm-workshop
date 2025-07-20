@@ -1,0 +1,4 @@
+prompt,response,model
+What is the meaning of life?,"42. Or perhaps, the meaning of life is subjective and varies from person to person.",gpt-4o-mini
+"How many o’s are there in the following phrase: ‘Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed’","There are 3 occurrences of the letter ""o"" in the phrase: ‘Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed’.",gpt-4o-mini
+"How many o’s are there in the following phrase: ‘Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed’",There are 6 o’s in the phrase.,gpt-3.5-turbo

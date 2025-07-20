@@ -38,6 +38,11 @@ API key: ${apiKey.length ? "********" + apiKey.slice(apiKey.length - 4): "Not se
 
 ## Step 2: Try some prompts
 
+Also try prompts that often lead to hallucinations, such as:
+
+- "How many o's are there in the following phrase: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed'"
+- "I'm looking for an employment law case in a district court where a flight attendant's negligence causes harm to a customer. Please provide a summary of the facts and a citation"
+
 ```js
 if (apiKey.length) {
   document.querySelector(".hidden-without-api-key").classList.remove("hide");
