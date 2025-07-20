@@ -466,7 +466,7 @@ view(Inputs.button([["Save API key", setApiKey], ["Clear API key", clearApiKey]]
 
 API key: ${apiKey.length ? "********" + apiKey.slice(apiKey.length - 4): "Not set"}
 
-<section class="hidden-without-api-key">
+<section class="hide hidden-without-api-key">
 
 ```js
 const promptInput = view(Inputs.textarea({
