@@ -63,6 +63,7 @@ const promptInput = view(Inputs.textarea({
 const conversations = Mutable([{
   prompt: "What is the meaning of life?",
   response: "42. Or perhaps, the meaning of life is subjective and varies from person to person.",
+  model: "gpt-4o-mini",
 }]);
 const appendConversation = (conversation) => {
   conversations.value = [...conversations.value, conversation];
@@ -81,6 +82,7 @@ view(Inputs.button([["Send", async () => {
     appendConversation({
       prompt: promptInput,
       response: response.choices[0].message.content,
+      model,
     });
   } catch (error) {
     console.error("Error:", error);
@@ -94,10 +96,11 @@ display(html`<table>
     <tr>
       <th>Prompt</th>
       <th>Response</th>
+      <th>Model</th>
     </tr>
   </thead>
   <tbody>
-    ${conversations.map(conversation => html`<tr><td>${conversation.prompt}</td><td>${conversation.response}</td></tr>`)}
+    ${conversations.map(conversation => html`<tr><td>${conversation.prompt}</td><td>${conversation.response}</td><td>${conversation.model}</td></tr>`)}
   </tbody>
 </table>`)
 ```
