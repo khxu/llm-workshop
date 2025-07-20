@@ -1,10 +1,10 @@
 ---
-title: "Level 2"
+title: "Jailbreaking"
 ---
 
-# Level 2
+# Jailbreaking
 
-Congrats on reaching level 2! Your API key should still be available here, as it was stored in your browser's Local Storage. If not, though, please copy/paste it again below. Remember, don't make a habit of copy/pasting your API keys into mysterious websites outside of this workshop.
+Your API key should still be available here, as it was stored in your browser's Local Storage. If not, though, please copy/paste it again below. Remember, don't make a habit of copy/pasting your API keys into mysterious websites outside of this workshop.
 
 ```js 
 const apiKeyInput = view(Inputs.password({
@@ -34,7 +34,7 @@ API key: ${apiKey.length ? "********" + apiKey.slice(apiKey.length - 4): "Not se
 
 <section class="hide hidden-without-api-key">
 
-### Jailbreaking
+## Jailbreaking exercise
 
 Currently, the LLM system prompt is set as the following: 
 

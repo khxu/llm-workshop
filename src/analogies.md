@@ -5,6 +5,19 @@ toc: true
 
 # Analogies made by submitters of briefs for Google v. Oracle
 
+From [Wikipedia](https://en.wikipedia.org/wiki/Google_LLC_v._Oracle_America,_Inc.):
+
+> _Google LLC v. Oracle America, Inc., 593 U.S. 1 (2021), was a landmark decision of the Supreme Court of the United States related to the nature of computer code and copyright law. The dispute centered on the use of parts of the Java programming language's application programming interfaces (APIs) and about 11,000 lines of source code, which are owned by Oracle (through subsidiary, Oracle America, Inc., originating from Sun Microsystems), within early versions of the Android operating system by Google._
+
+The case was [described by litigators on both sides](https://www.managingip.com/article/2a5bqtj8ume32iwlaoy2l/aipla-2021-google-v-oracle-was-analogy-fight-that-changed-little) as a "battle of analogies" to frame the facts to non-tech-savvy justices. Let's see how we can analyze these analogies using LLMs and embeddings.
+
+## Data
+
+First, we're going to need to get those analogies. For convenience, let's just limit this analysis to the [briefs submitted to the Supreme Court](https://www.supremecourt.gov/docket/docketfiles/html/public/18-956.html). To acquire the data, I performed the following steps:
+
+1. Downloaded the briefs from the Supreme Court's docket page.
+2. Extracted the analogies from the briefs using [Sharepoint's AI-powered Auto Fill](https://learn.microsoft.com/en-us/microsoft-365/syntex/autofill-overview) feature, along with the submitter and the party the brief was in support of.
+
 ```js
 const sql = DuckDBClient.sql({
   extracted_analogies: FileAttachment('./data/extracted_analogies_2025-07-19.csv').csv(),
@@ -81,6 +94,10 @@ Plot.plot({
   ],
 })
 ```
+
+## Embedding and clustering the analogies
+
+Next, I used [Latent Scope](https://github.com/enjalot/latent-scope) to embed the analogies and cluster them. Here's the output:
 
 ```sql id=latent_scope_data_to_plot echo display
 SELECT *
@@ -201,6 +218,8 @@ Plot.plot({
 })
 ```
 
+Now let's facet the data by submitter:
+
 ```js 
 Plot.plot({
     width: 900,
@@ -244,6 +263,8 @@ Plot.plot({
     ],
 })
 ```
+
+## Visualizing embeddings
 
 ```sql id=embeddings_with_analogies display echo
 SELECT name, in_support_of, submitter, analogy, label, embeddings
@@ -379,6 +400,8 @@ function diffEmbeddings(embedding1, embedding2) {
 }
 ```
 
+We can also look at the least similar analogies to the first one:
+
 ```sql id=top_10_least_similar_analogies display echo
 WITH embedding_of_interest AS (
   SELECT *
@@ -425,6 +448,10 @@ html`${[...top_10_least_similar_analogies].map(analogy => html`
   </div>
 `)}`
 ```
+
+## All analogies
+
+Let's display all the analogies in a list, grouped by submitter:
 
 ```js
 html`${d3.groups([...embeddings_with_analogies], d => d.submitter)
