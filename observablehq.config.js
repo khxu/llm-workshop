@@ -24,7 +24,7 @@ export default {
 
   // Some additional configuration options and their defaults:
   // theme: "default", // try "light", "dark", "slate", etc.
-  // header: "", // what to show in the header (HTML)
+  header: '<a href="https://github.com/khxu/llm-workshop">Repo</a>', // what to show in the header (HTML)
   // footer: "Built with Observable.", // what to show in the footer (HTML)
   sidebar: true, // whether to show the sidebar
   // toc: true, // whether to show the table of contents
