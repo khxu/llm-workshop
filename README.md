@@ -1,10 +1,5 @@
 # LLM Workshop
 
-~~1. embeddings exploration / latent space visualization (showing how apple, laptop, computer cluster together)~~
-1. creating an LLM evaluator (they write the LLM as a judge e.g. grade clarity with score from 0-5) and give them some test cases to run (inputs, outputs pregenerated for them)
-1. common prompting techniques and nonos? Chain of thought, avoiding arbitrary number values, avoiding arithmetic. Give them an understanding of limitations.
-~~1. Can maybe bake in a simple jailbreak example?~~
-
 This is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run:
 
 ```
